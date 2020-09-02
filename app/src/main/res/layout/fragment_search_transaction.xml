@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:filterTouchesWhenObscured="true"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/searchToolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/search_toolbar_color"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_marginStart="@dimen/common_offset"
+            android:layout_marginEnd="@dimen/common_offset"
+            android:layout_gravity="center"
+            android:src="?attr/homeAsUpIndicator"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchEditText"
+            style="@style/common_text_big_light"
+            android:textSize="20sp"
+            android:backgroundTint="@android:color/transparent"
+            android:hint="@string/search"
+            android:layout_width="0dp"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <ImageView
+            tools:visibility="visible"
+            android:id="@+id/btnClear"
+            android:visibility="gone"
+            android:contentDescription="@null"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_btn_cancel"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <com.hds.hdswallet.core.views.RecyclerViewEmptySupport
+        android:id="@+id/recyclerView"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toBottomOf="@id/searchToolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/item_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/emptyLabel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:drawableTop="@drawable/ic_search_empty"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/proxima_regular"
+        android:padding="30dp"
+        android:text="@string/search_by_transaction_or_kernel_id_comment_address_or_contact"
+        android:textAlignment="center"
+        android:textColor="@color/common_text_dark_color"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchToolbar"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

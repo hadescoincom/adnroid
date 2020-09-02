@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/share_transaction_details_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/share_transaction_gradient_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="78dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/senderLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amountContainer">
+
+                <TextView
+                    android:id="@+id/startAddressTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:letterSpacing="0.2"
+                    android:padding="3dp"
+                    android:text="@string/sender"
+                    android:textAllCaps="true"
+                    android:textColor="#8798A9"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/startAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="3dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/receiverLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/senderLayout">
+
+                <TextView
+                    android:id="@+id/endAddressTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:letterSpacing="0.2"
+                    android:padding="3dp"
+                    android:text="@string/sender"
+                    android:textAllCaps="true"
+                    android:textColor="#8798A9"
+                    android:textSize="12sp" />
+
+
+                <TextView
+                    android:id="@+id/endAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="3dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/feeLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/receiverLayout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:letterSpacing="0.2"
+                    android:padding="3dp"
+                    android:text="@string/transaction_fee"
+                    android:textAllCaps="true"
+                    android:textColor="#8798A9"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/feeLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="3dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    tools:text="0.765 GROTH" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/idLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/feeLayout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:letterSpacing="0.2"
+                    android:padding="3dp"
+                    android:text="@string/transaction_id"
+                    android:textAllCaps="true"
+                    android:textColor="#8798A9"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/idLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="3dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kernelLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/idLayout">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:letterSpacing="0.2"
+                    android:padding="3dp"
+                    android:text="@string/kernel_id"
+                    android:textAllCaps="true"
+                    android:textColor="#8798A9"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/kernelLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="3dp"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textIsSelectable="true"
+                    android:textSize="14sp"
+                    tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="21dp"
+                android:fontFamily="@font/roboto_regular"
+                android:lineSpacingExtra="4sp"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                tools:text="10 Jun 2019   |   3:46 PM" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/share_transaction_details_title"
+                android:layout_marginTop="32dp"
+                android:text="@string/transaction_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/amountContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#0DEEEEEE"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txDate">
+
+                <LinearLayout
+                    android:id="@+id/statusLayoutCenter"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imageViewCenter"
+                        style="@style/share_transaction_details_sent_icon"
+                        android:layout_marginStart="20dp"
+                        android:contentDescription="@string/sent"
+                        tools:src="@drawable/ic_sending_share_transaction_details" />
+
+                    <TextView
+                        android:id="@+id/confirming_state_textCenter"
+                        style="@style/share_transaction_details_confirming_state_text"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="3dp"
+                        tools:text="@string/send"
+                        tools:textColor="@color/sent_color" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    style="@style/share_transaction_details_sent_icon"
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="@string/sent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/amount"
+                    tools:src="@drawable/ic_sending_share_transaction_details" />
+
+                <ImageView
+                    android:id="@+id/txCurrency"
+                    android:layout_width="16dp"
+                    android:layout_height="24dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/amount"
+                    tools:src="@drawable/currency_hds_send" />
+
+                <TextView
+                    android:id="@+id/amount"
+                    style="@style/share_transaction_details_amount"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="5dp"
+                    app:layout_constraintEnd_toStartOf="@id/txCurrency"
+                    app:layout_constraintStart_toEndOf="@+id/confirming_state_text"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="0.123"
+                    tools:textColor="@color/sent_color" />
+
+                <TextView
+                    android:id="@+id/secondAvailableSum"
+                    style="@style/common_text_big_dark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="14sp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/txCurrency"
+                    app:layout_constraintTop_toBottomOf="@+id/txCurrency"
+                    tools:text="1234 USD" />
+
+
+                <TextView
+                    android:id="@+id/confirming_state_text"
+                    style="@style/share_transaction_details_confirming_state_text"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/send"
+                    tools:textColor="@color/sent_color" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+</FrameLayout>

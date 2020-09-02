@@ -1,0 +1,325 @@
+<resources>
+
+    <style name="Autocomplete">
+        <item name="colorControlNormal">@color/white_01</item>
+        <item name="colorControlActivated">@color/white_01</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="@style/Base.TextAppearance.AppCompat.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+    <style name="NoAnimTheme" parent="Theme.AppCompat.NoActionBar">
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary_dark</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:textViewStyle">@style/common_text_big_dark_dark</item>
+        <item name="android:textAppearance">@style/common_text_big_dark_dark</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:buttonStyle">@style/common_button_text_style</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:colorControlHighlight">@color/colorPrimaryDark_dark</item>
+        <item name="android:textColorHint">@color/common_hint_text_color</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="subHeaderTextColor">@color/common_text_dark_color_dark</item>
+        <item name="menuItemColor">@color/ic_menu_color_dark</item>
+        <item name="menuBackground">@drawable/menu_gradient_dark</item>
+        <item name="tabsColor">@color/common_text_dark_color_dark</item>
+        <item name="alertDialogColor">@color/alert_dialog_color_dark</item>
+        <item name="headerBackground">@drawable/address_toolbar_gradient_black</item>
+        <item name="colorPrimaryPicked">@color/colorPrimary_dark</item>
+        <item name="sentColorPicked">@color/sent_color_picked_dark</item>
+        <item name="cardBackground">@color/cardDarkColor</item>
+        <item name="initialBackground">@drawable/initial_background_black</item>
+        <item name="addressStatusBarColor">@color/addresses_status_bar_color_black</item>
+    </style>
+
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:textViewStyle">@style/common_text_big_dark</item>
+        <item name="android:textAppearance">@style/common_text_big_dark</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:buttonStyle">@style/common_button_text_style</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/common_hint_text_color</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="subHeaderTextColor">@color/common_text_dark_color</item>
+        <item name="menuItemColor">@color/ic_menu_color</item>
+        <item name="menuBackground">@drawable/menu_gradient</item>
+        <item name="tabsColor">@color/address_tab_text_color</item>
+        <item name="alertDialogColor">@color/colorPrimary</item>
+        <item name="headerBackground">@drawable/address_toolbar_gradient</item>
+        <item name="colorPrimaryPicked">@color/colorPrimary</item>
+        <item name="sentColorPicked">@color/sent_color_picked</item>
+        <item name="cardBackground">@color/colorPrimary</item>
+        <item name="initialBackground">@drawable/initial_background</item>
+        <item name="addressStatusBarColor">@color/addresses_status_bar_color</item>
+    </style>
+
+    <style name="PopupMenu" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:textColorPrimary">@color/common_text_color</item>
+        <item name="android:textColorSecondary">?attr/alertDialogColor</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:colorBackground">?attr/alertDialogColor</item>
+    </style>
+
+    <style name="common_button_text_style">
+        <item name="android:textSize">@dimen/wallet_button_text_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingStart">@dimen/welcome_button_text_padding_start</item>
+        <item name="android:paddingTop">@dimen/welcome_button_text_padding_top</item>
+        <item name="android:paddingBottom">@dimen/welcome_button_text_padding_bottom</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/wallet_btn_font</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="common_button_style">
+        <item name="android:layout_width">@dimen/common_btn_width</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="common_currency_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_marginTop">@dimen/common_currency_offset</item>
+    </style>
+
+    <style name="common_card_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginStart">@dimen/common_margin</item>
+        <item name="android:layout_marginEnd">@dimen/common_margin</item>
+    </style>
+
+    <style name="common_menu_item" parent="common_text_big_light">
+        <item name="android:textSize">@dimen/common_settings_size</item>
+    </style>
+
+    <style name="common_header_big">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textSize">@dimen/common_header_big_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="common_header_small">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/common_header_small_color</item>
+        <item name="android:textSize">@dimen/common_header_small_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="common_subheader_light" parent="common_text_big_light">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="common_text_big_light">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textSize">@dimen/common_text_big_size</item>
+    </style>
+
+    <style name="toolbar_center_title_text">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/common_text_color</item>
+        <item name="android:textSize">@dimen/common_toolbar_text_size</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="common_text_big_dark_dark">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/common_text_dark_color</item>
+        <item name="android:textSize">@dimen/common_text_big_size</item>
+    </style>
+
+    <style name="common_text_big_dark">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">?attr/subHeaderTextColor</item>
+        <item name="android:textSize">@dimen/common_text_big_size</item>
+    </style>
+
+    <style name="common_subheader_dark" parent="common_text_small_dark">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="common_text_small_light" parent="common_text_big_light">
+        <item name="android:textSize">@dimen/common_text_small_size</item>
+    </style>
+
+    <style name="common_text_small_dark" parent="common_text_big_dark">
+        <item name="android:textSize">@dimen/common_text_small_size</item>
+    </style>
+
+    <!-- WelcomeActivity -->
+    <style name="welcome_description_text_style" parent="common_text_big_light">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="welcome_description_item_text_style" parent="common_text_small_light">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="welcome_password_view_style" parent="common_header_big">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:letterSpacing">@dimen/welcome_password_dots_space</item>
+    </style>
+
+    <style name="welcome_password_label_style" parent="common_subheader_light">
+        <item name="android:paddingBottom">@dimen/welcome_password_title_padding_bottom</item>
+    </style>
+
+    <!-- WalletFragment -->
+    <style name="wallet_card_title_style" parent="common_header_big">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingEnd">@dimen/wallet_expandable_icon_padding</item>
+    </style>
+
+    <style name="wallet_in_progress_categories_style" parent="common_header_small">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- TransactionDetails -->
+    <style name="transaction_details_title" parent="common_subheader_light">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="transaction_details_sub_title" parent="common_text_big_dark">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:paddingEnd">@dimen/transaction_details_padding</item>
+        <item name="android:paddingBottom">@dimen/transaction_details_padding</item>
+    </style>
+
+    <style name="transaction_details_value" parent="common_text_big_light">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:paddingBottom">@dimen/transaction_details_padding</item>
+    </style>
+
+    <style name="common_bottom_sheet_style" parent="Theme.MaterialComponents.BottomSheetDialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/common_text_big_dark</item>
+        <item name="android:textAppearance">@style/common_text_big_dark</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:buttonStyle">@style/common_button_text_style</item>
+        <item name="android:colorControlHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/common_hint_text_color</item>
+    </style>
+
+    <!--Styles for sharing transaction details-->
+    <style name="share_transaction_details_parameter" parent="common_text_big_dark">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="share_transaction_details_value" parent="common_text_big_light">
+        <item name="android:layout_width">@dimen/share_transaction_details_value_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAlignment">viewEnd</item>
+    </style>
+
+    <style name="share_transaction_details_divider">
+        <item name="android:background">@color/share_transaction_details_divider_color</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/suggestions_divider_wight</item>
+    </style>
+
+    <style name="share_transaction_details_subtitle" parent="common_text_big_light">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.07</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="share_transaction_details_title" parent="common_text_big_light">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/wallet_maturing_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">0.35</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="share_transaction_details_sent_icon">
+        <item name="android:layout_width">@dimen/share_transaction_details_sent_icon_width</item>
+        <item name="android:layout_height">@dimen/share_transaction_details_sent_icon_height</item>
+    </style>
+
+    <style name="share_transaction_details_confirming_state_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textStyle">italic|bold</item>
+        <item name="android:textSize">@dimen/common_text_big_size</item>
+        <item name="android:letterSpacing">0.07</item>
+        <item name="android:gravity">left</item>
+    </style>
+
+    <style name="share_transaction_details_amount">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/common_toolbar_text_size</item>
+    </style>
+
+
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color -->
+        <item name="colorControlActivated">#46bdbf</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#8da1ad
+        </item>
+
+        <!-- inactive track color -->
+        <item name="android:colorForeground">#99000000
+        </item>
+    </style>
+
+    <style name="topAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/top_enter</item>
+        <item name="android:windowExitAnimation">@anim/top_exit</item>
+    </style>
+
+</resources>

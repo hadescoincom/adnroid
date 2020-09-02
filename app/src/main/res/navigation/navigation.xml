@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/welcomeCreateFragment">
+    <fragment
+        android:id="@+id/welcomeCreateFragment"
+        tools:layout="@layout/fragment_welcome_create"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_create.WelcomeCreateFragment"
+        android:label="WelcomeCreateFragment"
+        app:startDestination="@id/action_welcomeCreateFragment_to_welcomeDescriptionFragment">
+        <action
+            android:id="@+id/action_welcomeCreateFragment_to_welcomeRestoreFragment"
+            app:destination="@id/welcomeRestoreFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_welcomeCreateFragment_to_welcomeDescriptionFragment"
+            app:destination="@id/welcomeDescriptionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="hasBackArrow"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_welcomeCreateFragment_to_languageFragment"
+            app:destination="@id/languageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeOpenFragment"
+        tools:layout="@layout/fragment_welcome_open"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_open.WelcomeOpenFragment"
+        android:label="WelcomeOpenFragment" >
+        <action
+            android:id="@+id/action_welcomeOpenFragment_to_welcomeProgressFragment"
+            app:destination="@id/welcomeProgressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_welcomeOpenFragment_to_welcomeCreateFragment"
+            app:destination="@id/welcomeCreateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="true"
+                android:name="hasBackArrow" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeRestoreFragment"
+        tools:layout="@layout/fragment_welcome_restore"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_restore.WelcomeRestoreFragment"
+        android:label="WelcomeRestoreFragment" >
+        <action
+            android:id="@+id/action_welcomeRestoreFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeProgressFragment"
+        tools:layout="@layout/fragment_welcome_progress"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_progress.WelcomeProgressFragment"
+        android:label="WelcomeProgressFragment" >
+        <argument
+            android:name="pass"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="mode"
+            app:argType="string" />
+        <argument
+            android:name="seed"
+            app:argType="string[]"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_welcomeProgressFragment_to_walletFragment"
+            app:destination="@id/walletFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/navigation" />
+        <action
+            android:id="@+id/action_welcomeProgressFragment_to_welcomeCreateFragment"
+            app:destination="@id/welcomeCreateFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/navigation" />
+        <argument
+            android:name="isTrustedRestore"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_welcomeProgressFragment_to_welcomeOpenFragment"
+            app:destination="@id/welcomeOpenFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeSeedFragment"
+        tools:layout="@layout/fragment_welcome_seed"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_seed.WelcomeSeedFragment"
+        android:label="WelcomeSeedFragment" >
+        <action
+            android:id="@+id/action_welcomeSeedFragment_to_welcomeConfirmFragment"
+            app:destination="@id/welcomeConfirmFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_welcomeSeedFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="onlyDisplay"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeConfirmFragment"
+        tools:layout="@layout/fragment_welcome_confirm"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_confirm.WelcomeConfirmFragment"
+        android:label="WelcomeConfirmFragment" >
+        <argument
+            android:name="seed"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_welcomeConfirmFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_welcomeConfirmFragment_to_welcomeSeedFragment"
+            app:destination="@id/welcomeSeedFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/welcomeDescriptionFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_passwords"
+        android:id="@+id/passwordFragment"
+        android:name="com.hds.hdswallet.screens.create_password.PasswordFragment"
+        android:label="PasswordFragment" >
+        <argument
+            android:name="phrases"
+            app:argType="string[]"
+            app:nullable="true" />
+        <argument
+            android:name="mode"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="passChangeMode"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_passwordFragment_to_welcomeProgressFragment"
+            app:destination="@id/welcomeProgressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_passwordFragment_to_welcomeSeedFragment"
+            app:destination="@id/welcomeSeedFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/welcomeDescriptionFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_passwordFragment_to_restoreModeChoiceFragment2"
+            app:destination="@id/restoreModeChoiceFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeDescriptionFragment"
+        tools:layout="@layout/fragment_welcome_description"
+        android:name="com.hds.hdswallet.screens.welcome_screen.welcome_description.WelcomeDescriptionFragment"
+        android:label="WelcomeDescriptionFragment" >
+        <action
+            android:id="@+id/action_welcomeDescriptionFragment_to_welcomeSeedFragment"
+            app:destination="@id/welcomeSeedFragment"
+            app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/walletFragment"
+        tools:layout="@layout/fragment_wallet"
+        android:name="com.hds.hdswallet.screens.wallet.WalletFragment"
+        android:label="WalletFragment" >
+        <action
+            android:id="@+id/action_walletFragment_to_addressesFragment"
+            app:destination="@id/addressesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_walletFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_walletFragment_to_utxoFragment"
+            app:destination="@id/utxoFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_walletFragment_to_receiveFragment"
+            app:destination="@id/receiveFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_walletFragment_to_sendFragment"
+            app:destination="@id/sendFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_walletFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_walletFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_walletFragment_to_proofVerificationFragment"
+            app:destination="@id/proofVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_walletFragment_to_doubleAuthorizationFragment"
+            app:destination="@id/doubleAuthorizationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/walletFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        tools:layout="@layout/fragment_settings"
+        android:name="com.hds.hdswallet.screens.settings.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_checkOldPassFragment"
+            app:destination="@id/checkOldPassFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_settingsFragment_to_languageFragment"
+            app:destination="@id/languageFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_settingsFragment_to_ownerKeyVerificationFragment"
+            app:destination="@id/doubleAuthorizationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out">
+            <argument android:defaultValue="OwnerKey"
+                android:name="mode" />
+        </action>
+        <action
+            android:id="@+id/action_settingsFragment_to_welcomeSeedFragment"
+            app:destination="@id/welcomeSeedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_settingsFragment_to_proofVerificationFragment"
+            app:destination="@id/proofVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_settingsFragment_to_confirmRemoveWalletDialog2"
+            app:destination="@id/confirmRemoveWalletDialog2"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_settingsFragment_to_doubleAuthorizationFragment"
+            app:destination="@id/doubleAuthorizationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_settingsFragment_self"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="mode"
+            app:argType="com.hds.hdswallet.screens.settings.SettingsFragmentMode"
+            android:defaultValue="All" />
+        <action
+            android:id="@+id/action_settingsFragment_to_currencyFragment"
+            app:destination="@id/currencyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressesFragment"
+        tools:layout="@layout/fragment_addresses"
+        android:name="com.hds.hdswallet.screens.addresses.AddressesFragment"
+        android:label="AddressesFragment" >
+        <action
+            android:id="@+id/action_addressesFragment_to_addressFragment"
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_addressesFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_addressesFragment_to_editAddressFragment"
+            app:destination="@id/editAddressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/utxoFragment"
+        tools:layout="@layout/fragment_utxo"
+        android:name="com.hds.hdswallet.screens.utxo.UtxoFragment"
+        android:label="UtxoFragment" >
+        <action
+            android:id="@+id/action_utxoFragment_to_utxoDetailsFragment"
+            app:destination="@id/utxoDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/receiveFragment"
+        tools:layout="@layout/fragment_receive"
+        android:name="com.hds.hdswallet.screens.receive.ReceiveFragment"
+        android:label="ReceiveFragment" >
+        <argument
+            android:name="amount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_receiveFragment_to_changeAddressFragment"
+            app:destination="@id/changeAddressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="true"
+                android:name="isFromReceive" />
+        </action>
+        <argument
+            android:name="walletAddress"
+            app:argType="com.hds.hdswallet.core.entities.WalletAddress"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_receiveFragment_to_qrDialogFragment"
+            app:destination="@id/qrDialogFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_receiveFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="@null"
+                android:name="categoryId" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/sendFragment"
+        tools:layout="@layout/fragment_send"
+        android:name="com.hds.hdswallet.screens.send.SendFragment"
+        android:label="SendFragment" >
+        <argument
+            android:name="address"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="amount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_sendFragment_to_changeAddressFragment"
+            app:destination="@id/changeAddressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="false"
+                android:name="isFromReceive" />
+        </action>
+        <action
+            android:id="@+id/action_sendFragment_to_sendConfirmationFragment"
+            app:destination="@id/sendConfirmationFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_sendFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="@null"
+                android:name="categoryId" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/transactionDetailsFragment"
+        tools:layout="@layout/fragment_transaction_details"
+        android:name="com.hds.hdswallet.screens.transaction_details.TransactionDetailsFragment"
+        android:label="TransactionDetailsFragment" >
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_paymentProofDetailsFragment"
+            app:destination="@id/paymentProofDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <argument
+            android:name="txId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_receiveFragment"
+            app:destination="@id/receiveFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_sendFragment"
+            app:destination="@id/sendFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_transactionDetailsFragment_to_addContactFragment"
+            app:destination="@id/addContactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_proof_verification"
+        android:id="@+id/proofVerificationFragment"
+        android:name="com.hds.hdswallet.screens.proof_verification.ProofVerificationFragment"
+        android:label="ProofVerificationFragment" />
+    <fragment
+        tools:layout="@layout/fragment_payment_proof_details"
+        android:id="@+id/paymentProofDetailsFragment"
+        android:name="com.hds.hdswallet.screens.payment_proof_details.PaymentProofDetailsFragment"
+        android:label="PaymentProofDetailsFragment" >
+        <argument
+            android:name="paymentProof"
+            app:argType="com.hds.hdswallet.core.entities.PaymentProof" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        tools:layout="@layout/fragment_address"
+        android:name="com.hds.hdswallet.screens.address_details.AddressFragment"
+        android:label="AddressFragment" >
+        <argument
+            android:name="walletAddress"
+            app:argType="com.hds.hdswallet.core.entities.WalletAddress" />
+        <action
+            android:id="@+id/action_addressFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_addressFragment_to_editAddressFragment"
+            app:destination="@id/editAddressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_addressFragment_to_qrDialogFragment"
+            app:destination="@id/qrDialogFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_utxo_details"
+        android:id="@+id/utxoDetailsFragment"
+        android:name="com.hds.hdswallet.screens.utxo_details.UtxoDetailsFragment"
+        android:label="UtxoDetailsFragment" >
+        <argument
+            android:name="utxo"
+            app:argType="com.hds.hdswallet.core.entities.Utxo" />
+        <action
+            android:id="@+id/action_utxoDetailsFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_edit_address"
+        android:id="@+id/editAddressFragment"
+        android:name="com.hds.hdswallet.screens.address_edit.EditAddressFragment"
+        android:label="EditAddressFragment" >
+        <argument
+            android:name="walletAddress"
+            app:argType="com.hds.hdswallet.core.entities.WalletAddress" />
+        <action
+            android:id="@+id/action_editAddressFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="@null"
+                android:name="categoryId" />
+        </action>
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_edit_category"
+        android:id="@+id/editCategoryFragment"
+        android:name="com.hds.hdswallet.screens.edit_category.EditCategoryFragment"
+        android:label="EditCategoryFragment" >
+        <argument
+            android:name="categoryId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_category"
+        android:id="@+id/categoryFragment"
+        android:name="com.hds.hdswallet.screens.category.CategoryFragment"
+        android:label="CategoryFragment" >
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_categoryFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_categoryFragment_to_addressFragment"
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_check_old_pass"
+        android:id="@+id/checkOldPassFragment"
+        android:name="com.hds.hdswallet.screens.check_old_pass.CheckOldPassFragment"
+        android:label="CheckOldPassFragment" >
+        <action
+            android:id="@+id/action_checkOldPassFragment_to_passwordChangeFragment"
+            app:destination="@id/passwordChangeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/checkOldPassFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_passwords"
+        android:id="@+id/passwordChangeFragment"
+        android:name="com.hds.hdswallet.screens.create_password.PasswordFragment"
+        android:label="PasswordFragment" >
+        <argument
+            android:name="phrases"
+            app:argType="string[]"
+            app:nullable="true" />
+        <argument
+            android:name="mode"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="passChangeMode"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageFragment"
+        tools:layout="@layout/fragment_language"
+        android:name="com.hds.hdswallet.screens.language.LanguageFragment"
+        android:label="LanguageFragment" />
+    <fragment
+        android:id="@+id/doubleAuthorizationFragment"
+        android:name="com.hds.hdswallet.screens.confirm.DoubleAuthorizationFragment"
+        android:label="DoubleAuthorizationFragment">
+        <action
+            android:id="@+id/action_ownerKeyVerificationFragment_to_ownerKeyFragment"
+            app:destination="@id/ownerKeyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/settingsFragment" />
+        <action
+            android:id="@+id/action_doubleAuthorizationFragment_to_welcomeSeedFragment2"
+            app:destination="@id/welcomeSeedFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/settingsFragment" />
+        <argument
+            android:name="type"
+            app:argType="com.hds.hdswallet.screens.confirm.DoubleAuthorizationFragmentMode"
+            android:defaultValue="OwnerKey" />
+    </fragment>
+    <fragment
+        android:id="@+id/ownerKeyFragment"
+        tools:layout="@layout/fragment_owner_key"
+        android:name="com.hds.hdswallet.screens.owner_key.OwnerKeyFragment"
+        android:label="OwnerKeyFragment" />
+    <fragment
+        tools:layout="@layout/fragment_change_address"
+        android:id="@+id/changeAddressFragment"
+        android:name="com.hds.hdswallet.screens.change_address.ChangeAddressFragment"
+        android:label="ChangeAddressFragment" >
+        <argument
+            android:name="isFromReceive"
+            app:argType="boolean" />
+        <argument
+            android:name="generatedAddress"
+            app:argType="com.hds.hdswallet.core.entities.WalletAddress"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_send_confirmation"
+        android:id="@+id/sendConfirmationFragment"
+        android:name="com.hds.hdswallet.screens.send_confirmation.SendConfirmationFragment"
+        android:label="SendConfirmationFragment" >
+        <argument
+            android:name="sendAddress"
+            app:argType="string" />
+        <argument
+            android:name="outgoingAddress"
+            app:argType="string" />
+        <argument
+            android:name="sendAmount"
+            app:argType="long" />
+        <argument
+            android:name="fee"
+            app:argType="long" />
+        <argument
+            android:name="comment"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_sendConfirmationFragment_to_saveAddressFragment"
+            app:destination="@id/saveAddressFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"
+            app:popUpTo="@+id/walletFragment" />
+        <action
+            android:id="@+id/action_sendConfirmationFragment_to_confirmTransactionDialog"
+            app:destination="@id/confirmTransactionDialog"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <dialog
+        tools:layout="@layout/dialog_qr_code"
+        android:id="@+id/qrDialogFragment"
+        android:name="com.hds.hdswallet.screens.qr_dialog.QrDialogFragment"
+        android:label="QrDialogFragment" >
+        <argument
+            android:name="walletAddress"
+            app:argType="com.hds.hdswallet.core.entities.WalletAddress" />
+        <argument
+            android:name="amount"
+            app:argType="long"
+            android:defaultValue="0L" />
+        <argument
+            android:name="isAutogenerated"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </dialog>
+    <fragment
+        android:id="@+id/saveAddressFragment"
+        tools:layout="@layout/fragment_save_address"
+        android:name="com.hds.hdswallet.screens.save_address.SaveAddressFragment"
+        android:label="SaveAddressFragment" >
+        <argument
+            android:name="address"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_saveAddressFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="@null"
+                android:name="categoryId" />
+        </action>
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_search_transaction"
+        android:id="@+id/searchTransactionFragment"
+        android:name="com.hds.hdswallet.screens.search_transaction.SearchTransactionFragment"
+        android:label="SearchTransactionFragment" >
+        <action
+            android:id="@+id/action_searchTransactionFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addContactFragment"
+        android:name="com.hds.hdswallet.screens.add_contact.AddContactFragment"
+        tools:layout="@layout/fragment_add_contact"
+        android:label="AddContactFragment" >
+        <action
+            android:id="@+id/action_addContactFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument android:defaultValue="@null"
+                android:name="categoryId" />
+        </action>
+        <argument
+            android:name="address"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <dialog
+        android:id="@+id/confirmTransactionDialog"
+        tools:layout="@layout/dialog_confirm_transaction"
+        android:name="com.hds.hdswallet.screens.send_confirmation.dialog.ConfirmTransactionDialog"
+        android:label="ConfirmTransactionDialog" />
+    <fragment
+        android:id="@+id/restoreModeChoiceFragment"
+        tools:layout="@layout/fragment_restore_mode_choice"
+        android:name="com.hds.hdswallet.screens.welcome_screen.restore_mode_choice.RestoreModeChoiceFragment"
+        android:label="RestoreModeChoiceFragment">
+        <argument
+            android:name="pass"
+            app:argType="string"/>
+        <argument
+            android:name="seed"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_restoreModeChoiceFragment_to_welcomeProgressFragment"
+            app:destination="@id/welcomeProgressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_restoreModeChoiceFragment_to_restoreOwnerKeyFragment"
+            app:destination="@id/restoreOwnerKeyFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_restore_trusted_node"
+        android:id="@+id/restoreTustedNodeFragment"
+        android:name="com.hds.hdswallet.screens.welcome_screen.restore_trusted_node.RestoreTrustedNodeFragment"
+        android:label="RestoreTustedNodeFragment">
+        <action
+            android:id="@+id/action_restoreTustedNodeFragment_to_welcomeProgressFragment"
+            app:destination="@id/welcomeProgressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/restoreOwnerKeyFragment"
+        tools:layout="@layout/fragment_restore_owner_key"
+        android:name="com.hds.hdswallet.screens.welcome_screen.restore_owner_key.RestoreOwnerKeyFragment"
+        android:label="RestoreOwnerKeyFragment" >
+        <argument
+            android:name="pass"
+            app:argType="string"/>
+        <argument
+            android:name="seed"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_restoreOwnerKeyFragment_to_restoreTustedNodeFragment"
+            app:destination="@id/restoreTustedNodeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionsFragment"
+        tools:layout="@layout/fragment_transactions"
+        android:name="com.hds.hdswallet.screens.transactions.TransactionsFragment"
+        android:label="TransactionsFragment" >
+        <action
+            android:id="@+id/action_transactionsFragment_to_searchTransactionFragment"
+            app:destination="@id/searchTransactionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_proofVerificationFragment"
+            app:destination="@id/proofVerificationFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_sendFragment"
+            app:destination="@id/sendFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_transactionsFragment_to_receiveFragment"
+            app:destination="@id/receiveFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmRemoveWalletDialog2"
+        android:name="com.hds.hdswallet.screens.settings.password_dialog.ConfirmRemoveWalletDialog"
+        android:label="ConfirmRemoveWalletDialog" />
+    <fragment
+        android:id="@+id/currencyFragment"
+        android:name="com.hds.hdswallet.screens.currency.CurrencyFragment"
+        android:label="CurrencyFragment" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.hds.hdswallet.screens.notifications.NotificationsFragment"
+        android:label="NotifcationsFragment" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_addressFragment"
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_transactionDetailsFragment"
+            app:destination="@id/transactionDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_newVersionFragment"
+            app:destination="@id/newVersionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/newVersionFragment"
+        android:name="com.hds.hdswallet.screens.notifications.newversion.NewVersionFragment"
+        android:label="NewVersionFragment" >
+        <argument
+            android:name="version"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

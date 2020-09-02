@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/common_receive_dialog_background"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:src="@drawable/ic_btn_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_marginStart="@dimen/common_card_padding"
+        android:id="@+id/dialogTitle"
+        android:layout_marginTop="@dimen/common_card_padding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnClose"
+        android:text="@string/transaction_fee"
+        style="@style/common_subheader_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/feeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="1dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:layout_marginStart="@dimen/common_card_padding"
+        android:layout_marginEnd="@dimen/common_card_padding"
+        android:backgroundTint="@android:color/transparent"
+        android:inputType="number"
+        android:textColor="@color/sent_color"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@id/grothCurrency"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle"
+        tools:text="123" />
+
+    <TextView
+        android:id="@+id/secondAvailableSum"
+        style="@style/common_text_big_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feeEditText"
+        tools:text="1234 USD" />
+
+
+    <View
+        android:id="@+id/feeEditTextDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider_color"
+        app:layout_constraintEnd_toEndOf="@id/feeEditText"
+        app:layout_constraintStart_toStartOf="@id/feeEditText"
+        app:layout_constraintTop_toBottomOf="@id/feeEditText" />
+
+    <TextView
+        android:id="@+id/feeError"
+        android:visibility="gone"
+        style="@style/common_text_big_light"
+        android:textColor="@color/common_error_color"
+        tools:text="The minimum fee is 100 GROTH"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@id/grothCurrency"
+        app:layout_constraintStart_toStartOf="@id/feeEditText"
+        app:layout_constraintTop_toBottomOf="@id/feeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/grothCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_card_padding"
+        android:layout_marginBottom="@dimen/common_margin"
+        style="@style/common_text_big_light"
+        android:text="@string/currency_groth"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/feeEditText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.hds.hdswallet.core.views.HdsButton
+        android:id="@+id/btnSave"
+        android:layout_width="@dimen/send_transfer_btn_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="@dimen/common_card_padding"
+        android:background="@drawable/send_button"
+        app:button_icon="@drawable/ic_btn_save"
+        app:lower_case="true"
+        app:button_text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/feeError"
+        app:layout_constraintVertical_bias="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

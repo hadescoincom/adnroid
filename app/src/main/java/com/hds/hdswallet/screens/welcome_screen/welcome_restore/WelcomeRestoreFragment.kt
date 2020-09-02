@@ -1,0 +1,279 @@
+/*
+ * // Copyright 2018 Hds Development
+ * //
+ * // Licensed under the Apache License, Version 2.0 (the "License");
+ * // you may not use this file except in compliance with the License.
+ * // You may obtain a copy of the License at
+ * //
+ * //    http://www.apache.org/licenses/LICENSE-2.0
+ * //
+ * // Unless required by applicable law or agreed to in writing, software
+ * // distributed under the License is distributed on an "AS IS" BASIS,
+ * // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * // See the License for the specific language governing permissions and
+ * // limitations under the License.
+ */
+
+package com.hds.hdswallet.screens.welcome_screen.welcome_restore
+
+import android.text.Editable
+import android.view.View
+import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.GridLayout
+import androidx.navigation.fragment.findNavController
+import com.hds.hdswallet.R
+import com.hds.hdswallet.base_screen.BaseFragment
+import com.hds.hdswallet.base_screen.BasePresenter
+import com.hds.hdswallet.base_screen.MvpRepository
+import com.hds.hdswallet.base_screen.MvpView
+import com.hds.hdswallet.core.helpers.WelcomeMode
+import com.hds.hdswallet.core.views.HdsEditText
+import com.hds.hdswallet.core.views.HdsPhraseInput
+import com.hds.hdswallet.core.views.OnSuggestionClick
+import com.hds.hdswallet.core.views.Suggestions
+import com.hds.hdswallet.core.watchers.TextWatcher
+import kotlinx.android.synthetic.main.fragment_welcome_restore.*
+import com.hds.hdswallet.BuildConfig
+import com.hds.hdswallet.core.AppConfig
+import com.hds.hdswallet.core.helpers.PasteManager
+import android.widget.LinearLayout
+
+
+/**
+ *  11/5/18.
+ */
+class WelcomeRestoreFragment : BaseFragment<WelcomeRestorePresenter>(), WelcomeRestoreContract.View {
+    override fun showRestoreNotification() {
+        showAlert(getString(R.string.welcome_using_two_wallets_notification_message), getString(R.string.understand), { presenter?.onUnderstandPressed() }, getString(R.string.welcome_using_two_wallets_notification_title))
+        hideKeyboard()
+    }
+
+    private var currentEditText: EditText? = null
+
+    override fun onControllerGetContentLayoutId() = R.layout.fragment_welcome_restore
+    override fun getToolbarTitle(): String = getString(R.string.restore_wallet)
+
+    override fun init() {
+        btnNext.isEnabled = false
+
+        when(BuildConfig.FLAVOR) {
+            AppConfig.FLAVOR_MASTERNET -> {
+                btnShare.visibility = View.VISIBLE
+            }
+            AppConfig.FLAVOR_TESTNET -> {
+                btnShare.visibility = View.VISIBLE
+            }
+            AppConfig.FLAVOR_MAINNET -> {
+                btnShare.visibility = View.GONE
+            }
+        }
+    }
+
+    override fun initSuggestions(suggestions: List<String>) {
+        suggestionsView.setSuggestions(suggestions)
+    }
+
+    override fun clearSuggestions() {
+        suggestionsView.clear()
+    }
+
+    override fun setTextToCurrentView(text: String) {
+        currentEditText?.apply {
+            setText("")
+            append(text)
+            onEditorAction(imeOptions)
+        }
+    }
+
+    override fun updateSuggestions(text: String) {
+        suggestionsView.find(text)
+        suggestionsView.mode = Suggestions.Mode.SingleWord
+    }
+
+    override fun addListeners() {
+        forbidScreenshot()
+        btnShare.setOnClickListener {
+            val data = PasteManager.getPasteData(context)
+            val phrases1 = data.split(";").toTypedArray()
+            val phrases2 = data.split("\n").toTypedArray()
+
+            if (phrases1.count() == seedLayout.childCount + 1)
+            {
+                for (i in 0 until seedLayout.childCount) {
+                    val phraseInput = seedLayout.getChildAt(i) as HdsPhraseInput
+                    phraseInput.editText.apply {
+                        setText(phrases1[i])
+                        onEditorAction(imeOptions)
+                    }
+                }
+            }
+
+            if (phrases2.count() == seedLayout.childCount)
+            {
+                for (i in 0 until seedLayout.childCount) {
+                    val phrase = phrases2[i].split(" ").toTypedArray().last()
+                    val phraseInput = seedLayout.getChildAt(i) as HdsPhraseInput
+                    phraseInput.editText.apply {
+                        setText(phrase)
+                        onEditorAction(imeOptions)
+                    }
+                }
+            }
+
+            btnNext.isEnabled = arePhrasesFilled()
+
+            hideKeyboard()
+        }
+
+        btnNext.setOnClickListener {
+            if (it.isEnabled) {
+                presenter?.onRestorePressed()
+            }
+        }
+
+        suggestionsView.setOnSuggestionClick(object: OnSuggestionClick {
+            override fun onClick(suggestion: String) {
+                presenter?.onSuggestionClick(suggestion)
+            }
+        })
+    }
+
+    override fun onHideKeyboard() {
+        suggestionsView.find("")
+    }
+
+    override fun onShowKeyboard() {
+        if (currentEditText != null)
+        {
+            val view = seedLayout.findFocus() as HdsEditText
+            val rowIndex = view.tag as Int
+            if (rowIndex > 3) {
+                val y = view.height * rowIndex + suggestionsView.height
+                mainScroll.smoothScrollTo(0, y)
+            }
+
+            suggestionsView.find(currentEditText?.text.toString())
+        }
+    }
+
+    override fun showPasswordsFragment(seed: Array<String>) {
+        findNavController().navigate(WelcomeRestoreFragmentDirections.actionWelcomeRestoreFragmentToPasswordFragment(seed, WelcomeMode.RESTORE.name))
+    }
+
+    override fun configSeed(phrasesCount: Int) {
+        val sideOffset: Int = resources.getDimensionPixelSize(R.dimen.welcome_grid_element_side_offset)
+        val topOffset: Int = resources.getDimensionPixelSize(R.dimen.welcome_grid_element_top_offset)
+        var columnIndex = 0
+        var rowIndex = 0
+        seedLayout.rowCount = phrasesCount / 2
+
+        for (i in 1..phrasesCount) {
+            if (columnIndex == seedLayout.columnCount) {
+                columnIndex = 0
+                rowIndex++
+            }
+
+            seedLayout.addView(configPhrase(i, rowIndex, columnIndex, sideOffset, topOffset))
+            columnIndex++
+        }
+
+        //hide keyboard at last phrase
+        (seedLayout.getChildAt(phrasesCount - 1) as HdsPhraseInput).editText.imeOptions = EditorInfo.IME_ACTION_DONE
+
+        (seedLayout.getChildAt(0) as HdsPhraseInput).requestFocus()
+        showKeyboard()
+    }
+
+    private fun configPhrase(number: Int, rowIndex: Int, columnIndex: Int, sideOffset: Int, topOffset: Int): View? {
+        val context = context ?: return null
+
+        val phrase = HdsPhraseInput(context)
+        phrase.number = number
+        phrase.validator = { presenter?.onValidateSeed(it) ?: false }
+
+        phrase.isForEnsure = true
+
+        val params = GridLayout.LayoutParams()
+        params.height = GridLayout.LayoutParams.WRAP_CONTENT
+        params.width = GridLayout.LayoutParams.WRAP_CONTENT
+        params.columnSpec = GridLayout.spec(columnIndex, 1f)
+        params.rowSpec = GridLayout.spec(rowIndex)
+        params.topMargin = topOffset
+
+        when (columnIndex) {
+            0 -> params.rightMargin = sideOffset
+            1 -> params.leftMargin = sideOffset
+        }
+
+        phrase.layoutParams = params
+        phrase.editText.tag = rowIndex
+
+        phrase.editText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(phrase: Editable?) {
+                presenter?.onSeedChanged(phrase.toString())
+            }
+        })
+
+        phrase.editText.setOnFocusChangeListener { v, hasFocus ->
+            presenter?.onSeedFocusChanged((v as EditText?)?.text.toString(), hasFocus)
+            if (hasFocus) {
+                currentEditText = v as EditText?
+
+                val index = phrase.number/2
+                if (index > 3) {
+                    val y = phrase.height * index + suggestionsView.height
+                    mainScroll.smoothScrollTo(0, y)
+                }
+            }
+        }
+
+        return phrase
+    }
+
+    override fun handleRestoreButton() {
+        btnNext.isEnabled = arePhrasesFilled()
+    }
+
+    override fun getSeed(): Array<String> {
+        val seed = ArrayList<String>()
+
+        for (i in 0 until seedLayout.childCount) {
+            seed.add((seedLayout.getChildAt(i) as HdsPhraseInput).editText.text.toString().trim())
+        }
+
+        return seed.toTypedArray()
+    }
+
+    private fun arePhrasesFilled(): Boolean {
+        for (i in 0 until seedLayout.childCount) {
+            val phraseInput = seedLayout.getChildAt(i) as HdsPhraseInput
+            if (phraseInput.editText.text.isNullOrBlank() || !phraseInput.isValid) {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    override fun clearListeners() {
+        btnNext.setOnClickListener(null)
+        btnShare.setOnClickListener(null)
+        suggestionsView.setOnSuggestionClick(null)
+        allowScreenshot()
+    }
+
+    override fun initPresenter(): BasePresenter<out MvpView, out MvpRepository> {
+        return WelcomeRestorePresenter(this, WelcomeRestoreRepository(), WelcomeRestoreState())
+    }
+
+
+    private fun forbidScreenshot() {
+        activity?.window?.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
+    }
+
+    private fun allowScreenshot() {
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+    }
+}

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:filterTouchesWhenObscured="true">
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_gradient_size"
+        android:background="?attr/headerBackground"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hds.hdswallet.core.views.HdsToolbar
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hasStatus="true"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:padding="@dimen/common_offset">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/nameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.2"
+                        android:paddingStart="3dp"
+                        android:paddingEnd="3dp"
+                        android:text="@string/name"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/subHeaderTextColor"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/nameLabel"
+                        style="@style/common_text_big_light"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edit_text_selector"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/no_name"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="text|textCapSentences"
+                        android:paddingStart="3dp"
+                        android:paddingTop="5dp"
+                        android:paddingEnd="3dp"
+                        android:paddingBottom="5dp"
+                        android:singleLine="true"
+                        android:textSize="14sp"
+                        tools:ignore="Autofill,LabelFor,TextFields" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/expireLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/expireList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="1dp"
+                        android:padding="3dp"
+                        android:text=""
+                        android:textSize="14sp"
+                        tools:text="24 hours" />
+
+                    <TextView
+                        android:id="@+id/expireTitleLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.2"
+                        android:padding="3dp"
+                        android:text="@string/expires"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/subHeaderTextColor"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/expireLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:padding="3dp"
+                        android:textColor="?attr/subHeaderTextColor"
+                        android:textSize="14sp"
+                        tools:text="2 Jan 2019     |     3:46 PM (GMT +3)" />
+
+                    <View
+                        android:id="@+id/expireLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/white_01" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tagsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:letterSpacing="0.2"
+                        android:padding="3dp"
+                        android:text="@string/tags"
+                        android:textAllCaps="true"
+                        android:textColor="?attr/subHeaderTextColor"
+                        android:textSize="12sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/tagsConstraintLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/tagAction"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="15dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_add"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/tagsLabel" />
+
+                        <TextView
+                            android:id="@+id/tagsLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="52dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:maxLines="1"
+                            android:padding="4dp"
+                            android:textAllCaps="false"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            app:layout_constraintEnd_toStartOf="@+id/tagAction"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="Payment, Vendor" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.hds.hdswallet.core.views.HdsButton
+                android:id="@+id/btnCancel"
+                android:layout_width="@dimen/wallet_button_width"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/primary_button"
+                app:button_icon="@drawable/ic_btn_cancel"
+                app:button_text="@string/cancel"
+                app:button_text_color="@color/common_text_color"
+                app:layout_constraintEnd_toStartOf="@id/btnSave"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:lower_case="true" />
+
+            <com.hds.hdswallet.core.views.HdsButton
+                android:id="@+id/btnSave"
+                android:layout_width="@dimen/wallet_button_width"
+                android:layout_height="wrap_content"
+                app:button_icon="@drawable/ic_btn_save"
+                app:button_text="@string/save"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="0.5"
+                app:layout_constraintStart_toEndOf="@id/btnCancel"
+                app:layout_constraintTop_toTopOf="@+id/btnCancel"
+                app:lower_case="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

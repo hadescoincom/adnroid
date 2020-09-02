@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.hds.hdswallet.core.views.HdsToolbar
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hasStatus="false"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:filterTouchesWhenObscured="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/description"
+                style="@style/welcome_description_text_style"
+                android:paddingStart="@dimen/welcome_seed_description_side_offset"
+                android:paddingTop="@dimen/welcome_seed_description_padding"
+                android:paddingEnd="@dimen/welcome_seed_description_side_offset"
+                android:text="@string/welcome_seed_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <GridLayout
+                android:id="@+id/seedLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="@dimen/welcome_seed_button_margin"
+                android:columnCount="2"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/btnNext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/description" />
+
+            <com.hds.hdswallet.core.views.HdsButton
+                android:id="@+id/btnNext"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:button_icon="@drawable/ic_icon_recovery"
+                app:button_text="@string/complete_verification"
+                app:layout_constraintBottom_toTopOf="@+id/btnLater"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:lower_case="true" />
+
+            <com.hds.hdswallet.core.views.HdsButton
+                android:id="@+id/btnLater"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/primary_button"
+                app:button_icon="@drawable/ic_send_white"
+                app:button_text="@string/i_will_later"
+                app:lower_case="false"
+                app:button_text_color="@color/common_text_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/confirmRootLayout"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.hds.hdswallet.core.views.HdsToolbar
+            android:id="@+id/toolbarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hasStatus="false"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:filterTouchesWhenObscured="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/description"
+                    style="@style/welcome_description_text_style"
+                    android:paddingStart="@dimen/welcome_description_side_offset"
+                    android:paddingTop="@dimen/common_offset"
+                    android:paddingEnd="@dimen/welcome_description_side_offset"
+                    android:paddingBottom="@dimen/welcome_seed_description_padding_bottom"
+                    android:text="@string/welcome_validation_description"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <GridLayout
+                    android:id="@+id/seedLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:columnCount="2"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description" />
+
+                <com.hds.hdswallet.core.views.HdsButton
+                    android:id="@+id/btnNext"
+                    style="@style/common_button_style"
+                    android:layout_marginTop="@dimen/welcome_seed_button_margin"
+                    app:button_icon="@drawable/ic_btn_proceed"
+                    app:button_text="@string/next"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/seedLayout"
+                    app:lower_case="true" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.hds.hdswallet.core.views.Suggestions
+        android:id="@+id/suggestionsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
+</FrameLayout>

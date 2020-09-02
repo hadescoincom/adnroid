@@ -1,0 +1,10 @@
+*.iml
+*.bat
+.idea/
+.gradle/
+/build
+/app/release
+/app/masternet
+/app/hdstestnet
+/app/mainnet
+/local.properties

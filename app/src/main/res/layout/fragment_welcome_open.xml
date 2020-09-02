@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="false"
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/welcome_small_logo_width"
+            android:layout_height="@dimen/welcome_small_logo_height"
+            android:layout_marginTop="@dimen/welcome_logo_small_margin_top"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/description"
+            style="@style/common_text_big_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/welcome_open_description_top_offset"
+            android:text="@string/enter_your_password_to_access_the_wallet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="@dimen/welcome_open_margin_side"
+            android:layout_marginEnd="24dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:hintTextAppearance="@style/welcome_password_label_style"
+            app:layout_constraintBottom_toTopOf="@id/passError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description">
+
+            <com.hds.hdswallet.core.views.HdsEditText
+                android:id="@+id/pass"
+                style="@style/welcome_password_view_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/password"
+                tools:ignore="Autofill,LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/passError"
+            style="@style/common_text_big_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/password_not_match"
+            android:textColor="@color/common_error_color"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passLayout" />
+
+        <com.hds.hdswallet.core.views.HdsButton
+            android:id="@+id/btnOpen"
+            style="@style/common_button_style"
+            android:layout_marginTop="@dimen/welcome_open_margin_side"
+            app:button_icon="@drawable/ic_btn_show"
+            app:button_text="@string/welcome_open"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passError"
+            app:lower_case="true" />
+
+        <com.hds.hdswallet.core.views.BiometricView
+            android:id="@+id/biometricView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnOpen"
+            app:layout_constraintVertical_chainStyle="spread">
+
+        </com.hds.hdswallet.core.views.BiometricView>
+
+
+        <LinearLayout
+            android:id="@+id/bottomLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/biometricView"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_goneMarginTop="@dimen/welcome_button_margin_offset">
+
+            <TextView
+                android:id="@+id/btnChange"
+                style="@style/common_subheader_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="30dp"
+                android:padding="5dp"
+                android:text="@string/welcome_restore_or_create"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/appVersion"
+                style="@style/common_text_big_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.5"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Version 1.1.2" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

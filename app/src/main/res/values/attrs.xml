@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="phrase" format="string" />
+    <attr name="number" format="integer" />
+
+    <attr name="subHeaderTextColor" format="reference"/>
+    <attr name="menuItemColor" format="reference"/>
+    <attr name="menuBackground" format="reference"/>
+    <attr name="tabsColor" format="reference"/>
+    <attr name="alertDialogColor" format="reference"/>
+    <attr name="headerBackground" format="reference"/>
+    <attr name="colorPrimaryPicked" format="reference"/>
+    <attr name="sentColorPicked" format="reference"/>
+    <attr name="cardBackground" format="reference"/>
+    <attr name="initialBackground" format="reference"/>
+    <attr name="addressStatusBarColor" format="reference"/>
+
+
+    <declare-styleable name="HdsButton">
+        <attr name="button_text" format="integer" />
+        <attr name="button_icon" format="integer" />
+        <attr name="button_text_color" format="integer" />
+        <attr name="text_padding_enabled" format="boolean" />
+        <attr name="lower_case" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PasswordStrengthView">
+        <attr name="strength" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="HdsPhrase">
+        <attr name="phrase" />
+        <attr name="number" />
+    </declare-styleable>
+
+    <declare-styleable name="HdsEditText">
+        <attr name="state_normal" format="boolean" />
+        <attr name="state_accent" format="boolean" />
+        <attr name="state_error" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="HdsPhraseInput">
+        <attr name="phrase" />
+        <attr name="number" />
+        <attr name="isForEnsure" format="boolean" />
+        <attr name="number_text_color" format="integer" />
+        <attr name="number_background" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="HdsToolbar">
+        <attr name="hasStatus" format="boolean" />
+        <attr name="centerTitle" format="boolean" />
+    </declare-styleable>
+</resources>

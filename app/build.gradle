@@ -1,0 +1,254 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'io.fabric'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        // These docs use an open ended version so that our plugin
+        // can be updated quickly in response to Android tooling updates
+
+        // We recommend changing it to the latest version from our changelog:
+        // https://docs.fabric.io/android/changelog.html#fabric-gradle-plugin
+        classpath "io.fabric.tools:gradle:$ver_fabric_gradle"
+    }
+}
+
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+android {
+        signingConfigs {
+
+
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.hds.hdswallet"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 256
+        versionName "5.0.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    androidExtensions {
+        experimental = true
+    }
+
+    flavorDimensions "api"
+
+    splits {
+        abi {
+
+            enable true
+
+            reset()
+
+            include "arm64-v8a", "armeabi", "armeabi-v7a", "x86", "x86_64"
+
+            universalApk true
+        }
+    }
+
+    productFlavors {
+        mainnet {
+            dimension "api"
+            applicationIdSuffix ".mainnet"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-mainnet.pro'
+        }
+        masternet {
+            dimension "api"
+            applicationIdSuffix ".masternet"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-masternet.pro'
+        }
+        hdstestnet {
+            dimension "api"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-testnet.pro'
+        }
+    }
+}
+
+// Map for the version code that gives each ABI a value.
+ext.abiCodes = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
+
+project.ext.versionCodesABI = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
+
+import com.android.build.OutputFile
+
+// For each APK output variant, override versionCode with a combination of
+// ext.abiCodes * 1000 + variant.versionCode. In this example, variant.versionCode
+// is equal to defaultConfig.versionCode. If you configure product flavors that
+// define their own versionCode, variant.versionCode uses that value instead.
+android.applicationVariants.all { variant ->
+
+    // Assigns a different version code for each output APK
+    // other than the universal APK.
+    variant.outputs.each { output ->
+
+        // Stores the value of ext.abiCodes that is associated with the ABI for this variant.
+        def baseAbiVersionCode =
+                // Determines the ABI for this variant and returns the mapped value.
+                project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+
+        // Because abiCodes.get() returns null for ABIs that are not mapped by ext.abiCodes,
+        // the following code does not override the version code for universal APKs.
+        // However, because we want universal APKs to have the lowest version code,
+        // this outcome is desirable.
+        if (baseAbiVersionCode != null) {
+
+            // Assigns the new version code to versionCodeOverride, which changes the version code
+            // for only the output APK, not for the variant itself. Skipping this step simply
+            // causes Gradle to use the value of variant.versionCode for the APK.
+            output.versionCodeOverride =
+                    baseAbiVersionCode * 1000 + variant.versionCode
+        }
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+crashlytics {
+    enableNdk true
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleMasternetDebug' || task.name == 'assembleMasternetRelease') {
+//        task.dependsOn updateMasternetLibs
+    }
+    if (task.name == 'assembleHdstestnetDebug' || task.name == 'assembleHdstestnetRelease') {
+//        task.dependsOn updateTestnetLibs
+    }
+    if (task.name == 'assembleMainnetDebug' || task.name == 'assembleMainnetRelease') {
+        //  task.dependsOn updateMainnetLibs
+    }
+}
+
+task updateMasternetLibs(type: Exec) {
+    doFirst {
+        workingDir "$rootDir"
+        if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+            //  commandLine 'cmd', '/c', file("$rootDir/android-wallet-masternet.bat").absolutePath
+        } else {
+            exec {
+                commandLine 'chmod', '+x', file("$rootDir/android-wallet-masternet.sh").absolutePath
+            }
+            commandLine "$rootDir/android-wallet-masternet.sh"
+        }
+    }
+}
+
+task updateTestnetLibs(type: Exec) {
+    doFirst {
+        workingDir "$rootDir"
+        if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+            //  commandLine 'cmd', '/c', file("$rootDir/android-wallet-testnet.bat").absolutePath
+        } else {
+            exec {
+                commandLine 'chmod', '+x', file("$rootDir/android-wallet-testnet.sh").absolutePath
+            }
+            commandLine "$rootDir/android-wallet-testnet.sh"
+        }
+    }
+}
+
+task updateMainnetLibs(type: Exec) {
+    doFirst {
+        workingDir "$rootDir"
+        if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+            //  commandLine 'cmd', '/c', file("$rootDir/android-wallet-mainnet.bat").absolutePath
+        } else {
+            exec {
+                commandLine 'chmod', '+x', file("$rootDir/android-wallet-mainnet.sh").absolutePath
+            }
+            commandLine "$rootDir/android-wallet-mainnet.sh"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$ver_kotlin"
+    implementation "androidx.appcompat:appcompat:$ver_app_compat"
+    implementation "androidx.legacy:legacy-support-v4:$ver_legacy_support"
+    implementation "androidx.media:media:$ver_media"
+    implementation "androidx.constraintlayout:constraintlayout:$ver_constraint_layout"
+    implementation "androidx.recyclerview:recyclerview:$ver_recyclerview"
+    implementation "com.google.android.material:material:$ver_material"
+    implementation "androidx.cardview:cardview:$ver_cardview"
+    implementation "io.reactivex.rxjava2:rxandroid:$ver_rx_android"
+    implementation "io.reactivex.rxjava2:rxjava:$ver_rx_java"
+    implementation "com.github.restorer:holycycle:$ver_holycycle"
+    implementation "com.google.firebase:firebase-core:$ver_firebase_core"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "com.elvishew:xlog:$ver_xlog"
+    implementation "com.google.zxing:core:$ver_qr"
+    implementation "com.journeyapps:zxing-android-embedded:$ver_qr_android_embedded"
+    implementation "online.devliving:securedpreferencestore:$ver_secured_store"
+    implementation "net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:$ver_keyboard_event"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$ver_leak_canary"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$ver_leak_canary"
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$ver_leak_canary"
+    implementation "com.google.code.gson:gson:$ver_gson"
+    implementation 'androidx.core:core-ktx:1.0.1'
+    implementation "org.jetbrains.anko:anko-commons:0.10.4"
+    implementation 'com.karumi:dexter:6.0.0'
+    implementation "androidx.tonyodev.fetch2:xfetch2:3.1.4"
+    implementation 'androidx.biometric:biometric:1.0.1'
+    implementation 'com.android.support:multidex:1.0.0'
+    implementation 'com.samigehi:loadingview:1.1'
+    implementation 'me.relex:circleindicator:2.1.4'
+
+    implementation "com.mikepenz:materialdrawer:7.0.0-rc07"
+    implementation "com.android.support:support-annotations:28.0.0"
+    implementation "com.google.android.material:material:1.1.0-alpha10"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    implementation 'jp.wasabeef:blurry:3.0.0'
+
+    testImplementation "junit:junit:$ver_junit"
+    testImplementation "org.powermock:powermock-module-junit4:$ver_powermock"
+    testImplementation "org.powermock:powermock-module-junit4-rule:$ver_powermock"
+    testImplementation "org.powermock:powermock-api-mockito:$ver_powermock"
+    testImplementation "org.powermock:powermock-classloading-xstream:$ver_powermock"
+
+
+    androidTestImplementation "androidx.test:runner:$ver_test_runner"
+    androidTestImplementation "androidx.test:rules:$ver_test_rules"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$ver_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-web:$ver_espresso"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$ver_espresso"
+    androidTestImplementation "com.agoda.kakao:kakao:$ver_kakao"
+
+    implementation("com.crashlytics.sdk.android:crashlytics-ndk:$ver_crashlytics_ndk") {
+        transitive = true
+    }
+    implementation("com.crashlytics.sdk.android:crashlytics:$ver_crashlytics") {
+        transitive = true
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
