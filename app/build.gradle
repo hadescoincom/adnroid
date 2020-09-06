@@ -37,10 +37,16 @@ android {
         applicationId "com.hds.hdswallet"
         minSdkVersion 23
         targetSdkVersion 29
-        versionCode 256
-        versionName "5.0.2"
+        versionCode 100
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        ndk {
+            //根据需要 自行选择添加的对应cpu类型的.so库。
+            abiFilters 'armeabi-v7a'   //淘宝、微信、FaceBook、Twitter
+//            abiFilters 'armeabi', 'armeabi-v7a', 'mips', 'x86'
+        }
     }
     buildTypes {
         release {
@@ -62,7 +68,7 @@ android {
 
             reset()
 
-            include "arm64-v8a", "armeabi", "armeabi-v7a", "x86", "x86_64"
+            include "armeabi-v7a" //"arm64-v8a", "armeabi", "armeabi-v7a", "x86", "x86_64"
 
             universalApk true
         }
@@ -74,22 +80,24 @@ android {
             applicationIdSuffix ".mainnet"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-mainnet.pro'
         }
-        masternet {
-            dimension "api"
-            applicationIdSuffix ".masternet"
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-masternet.pro'
-        }
-        hdstestnet {
-            dimension "api"
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-testnet.pro'
-        }
+//        masternet {
+//            dimension "api"
+//            applicationIdSuffix ".masternet"
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-masternet.pro'
+//        }
+//        hdstestnet {
+//            dimension "api"
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-testnet.pro'
+//        }
     }
 }
 
 // Map for the version code that gives each ABI a value.
-ext.abiCodes = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
+//ext.abiCodes = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
+ext.abiCodes = ["armeabi-v7a": 2]
 
-project.ext.versionCodesABI = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
+project.ext.versionCodesABI = ["armeabi-v7a": 2]
+//project.ext.versionCodesABI = ["arm64-v8a": 3, "armeabi": 1, "armeabi-v7a": 2, "x86": 4, "x86_64": 5]
 
 import com.android.build.OutputFile
 
