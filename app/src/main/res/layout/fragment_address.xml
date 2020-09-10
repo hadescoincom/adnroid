@@ -84,7 +84,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                 </LinearLayout>
@@ -114,7 +114,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="2 Jan 2019     |     3:46 PM (GMT +3)" />
                 </LinearLayout>
@@ -144,7 +144,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="Payment, Vendor" />
                 </LinearLayout>
@@ -175,7 +175,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="1dp"
                     android:text="@string/transactions_list"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#333333"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"

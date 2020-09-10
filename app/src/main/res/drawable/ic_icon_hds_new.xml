@@ -7,7 +7,7 @@
   <path
       android:pathData="M10,10m-9.182,0a9.182,9.182 0,1 1,18.364 0a9.182,9.182 0,1 1,-18.364 0"
       android:strokeWidth="2"
-      android:strokeColor="#00F6D2"
+      android:strokeColor="#333333"
       android:fillType="evenOdd">
     <aapt:attr name="android:fillColor">
       <gradient 
@@ -16,7 +16,7 @@
           android:centerY="9.99849"
           android:type="radial">
         <item android:offset="0" android:color="#FF008471"/>
-        <item android:offset="1" android:color="#FF103051"/>
+        <item android:offset="1" android:color="#FFffffff"/>
       </gradient>
     </aapt:attr>
   </path>

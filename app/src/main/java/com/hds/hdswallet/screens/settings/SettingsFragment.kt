@@ -177,8 +177,8 @@ class SettingsFragment : BaseFragment<SettingsPresenter>(), SettingsContract.Vie
                 s1.add(SettingsItem(null, getString(R.string.clear_local_data),null, SettingsFragmentMode.ClearLocal))
 
                 var s2 = mutableListOf<SettingsItem>()
-         //       s2.add(SettingsItem(null, getString(R.string.language),null, SettingsFragmentMode.Language))
-                s2.add(SettingsItem(null, getString(R.string.dark_mode),null, SettingsFragmentMode.DarkMode, switch = App.isDarkMode))
+                s2.add(SettingsItem(null, getString(R.string.language),null, SettingsFragmentMode.Language))
+//                s2.add(SettingsItem(null, getString(R.string.dark_mode),null, SettingsFragmentMode.DarkMode, switch = App.isDarkMode))
 
                 items.add(s1.toTypedArray())
                 items.add(s2.toTypedArray())

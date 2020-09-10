@@ -36,6 +36,7 @@
         android:id="@+id/transactionCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/transactionTitle"
         app:layout_constraintBottom_toBottomOf="@id/transactionTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -56,6 +57,7 @@
         android:id="@+id/tagsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/tagsTitle"
         app:layout_constraintBottom_toBottomOf="@id/tagsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -76,6 +78,7 @@
         android:id="@+id/addressesCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/addressesTitle"
         app:layout_constraintBottom_toBottomOf="@id/addressesTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -96,6 +99,7 @@
         android:id="@+id/contactsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/contactsTitle"
         app:layout_constraintBottom_toBottomOf="@id/contactsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>

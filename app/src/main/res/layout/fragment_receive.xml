@@ -61,10 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="30dp"
-                    android:background="@drawable/primary_button"
+                    android:background="@drawable/receive_button"
                     app:button_icon="@drawable/ic_btn_qr"
-                    app:button_text="@string/show_qr"
-                    app:button_text_color="@color/common_text_color">
+                    app:button_text="@string/show_qr">
 
                 </com.hds.hdswallet.core.views.HdsButton>
 
@@ -316,14 +315,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/common_offset"
-                    android:background="@drawable/receive_btn_change_background"
                     android:paddingStart="@dimen/small_button_padding_horizontal"
                     android:paddingTop="@dimen/small_button_padding_vertical"
                     android:paddingEnd="@dimen/small_button_padding_horizontal"
                     android:paddingBottom="@dimen/small_button_padding_vertical"
                     app:button_icon="@drawable/ic_btn_change_receive"
                     app:button_text="@string/change_address"
-                    app:button_text_color="@color/received_color"
+                    app:button_text_color="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="@id/token"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:lower_case="true"

@@ -77,7 +77,7 @@ class WelcomeCreateFragment : BaseFragment<WelcomeCreatePresenter>(), WelcomeCre
     }
 
     override fun setupLanguageButton(currentLanguage: LocaleHelper.SupportedLanguage) {
-        btnChangeLanguage.visibility = View.GONE
+//        btnChangeLanguage.visibility = View.GONE
         btnChangeLanguage.text = currentLanguage.languageCode.toUpperCase()
     }
 

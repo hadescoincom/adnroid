@@ -8,7 +8,7 @@
                 android:right="0.4dp"
                 android:top="0.4dp" />
 
-            <solid android:color="#0DDA68F5" />
+            <solid android:color="#0D333333" />
         </shape>
     </item>
     <item>
@@ -19,7 +19,7 @@
                 android:right="0.4dp"
                 android:top="0.4dp" />
 
-            <solid android:color="#20DA68F5" />
+            <solid android:color="#20333333" />
         </shape>
     </item>
     <item>
@@ -30,19 +30,7 @@
                 android:right="0.4dp"
                 android:top="0.4dp" />
 
-            <solid android:color="#33DA68F5" />
-
-        </shape>
-    </item>
-    <item>
-        <shape android:shape="oval">
-            <padding
-                android:bottom="0.4dp"
-                android:left="0.4dp"
-                android:right="0.4dp"
-                android:top="0.4dp" />
-
-            <solid android:color="#66DA68F5" />
+            <solid android:color="#33333333" />
 
         </shape>
     </item>
@@ -54,7 +42,19 @@
                 android:right="0.4dp"
                 android:top="0.4dp" />
 
-            <solid android:color="#b3da68f5" />
+            <solid android:color="#66333333" />
+
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <padding
+                android:bottom="0.4dp"
+                android:left="0.4dp"
+                android:right="0.4dp"
+                android:top="0.4dp" />
+
+            <solid android:color="#b3333333" />
 
         </shape>
     </item>
@@ -62,7 +62,7 @@
     <!-- Background -->
     <item>
         <shape android:shape="oval">
-            <solid android:color="#da68f5" />
+            <solid android:color="#333333" />
             <size android:width="14dp" android:height="14dp"/>
         </shape>
     </item>

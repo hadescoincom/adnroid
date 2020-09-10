@@ -78,7 +78,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:padding="3dp"
                             android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#333333"
                             android:textSize="14sp"
                             tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                     </LinearLayout>
@@ -137,7 +137,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:padding="3dp"
                             android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#333333"
                             android:textSize="14sp"
                             tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
 
@@ -197,7 +197,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:padding="3dp"
                             android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#333333"
                             android:textSize="14sp"
                             tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                     </LinearLayout>
@@ -257,7 +257,7 @@
                             android:fontFamily="@font/roboto_regular"
                             android:padding="3dp"
                             android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#333333"
                             android:textSize="14sp"
                             tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                     </LinearLayout>
@@ -270,10 +270,8 @@
                     android:layout_width="@dimen/transaction_details_button_width"
                     android:layout_height="0dp"
                     android:layout_marginTop="24dp"
-                    android:background="@drawable/primary_button"
                     app:button_icon="@drawable/ic_btn_copy"
                     app:button_text="@string/copy_details"
-                    app:button_text_color="@color/common_text_color"
                     app:layout_constraintEnd_toStartOf="@id/btnCodeCopy"
                     app:layout_constraintHorizontal_bias="0.48"
                     app:layout_constraintStart_toStartOf="parent"

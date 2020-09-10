@@ -98,6 +98,8 @@
                         android:layout_marginRight="1dp"
                         android:padding="3dp"
                         android:text=""
+                        android:spinnerMode="dropdown"
+                        android:popupBackground="@color/colorAccent"
                         android:textSize="14sp"
                         tools:text="24 hours" />
 
@@ -173,7 +175,7 @@
                             android:maxLines="1"
                             android:padding="4dp"
                             android:textAllCaps="false"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#333"
                             android:textSize="14sp"
                             app:layout_constraintEnd_toStartOf="@+id/tagAction"
                             app:layout_constraintStart_toStartOf="parent"
@@ -191,10 +193,8 @@
                 android:layout_width="@dimen/wallet_button_width"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/primary_button"
                 app:button_icon="@drawable/ic_btn_cancel"
                 app:button_text="@string/cancel"
-                app:button_text_color="@color/common_text_color"
                 app:layout_constraintEnd_toStartOf="@id/btnSave"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"

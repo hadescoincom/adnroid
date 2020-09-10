@@ -185,7 +185,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="1dp"
                         android:text="@string/details"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -228,7 +228,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="12 Jun 2018   |   3:46 PM" />
                 </LinearLayout>
@@ -290,7 +290,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         android:enabled="true"
                         android:textIsSelectable="true"
@@ -305,7 +305,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="Categories" />
 
@@ -367,7 +367,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textIsSelectable="true"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
@@ -380,7 +380,7 @@
                         android:paddingStart="3dp"
                         android:paddingEnd="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="Categories" />
 
@@ -411,7 +411,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="0.765 GROTH" />
                 </LinearLayout>
@@ -441,7 +441,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="Payment to Laura for May" />
                 </LinearLayout>
@@ -471,7 +471,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                 </LinearLayout>
@@ -501,7 +501,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textIsSelectable="true"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
@@ -557,7 +557,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="1dp"
                         android:text="@string/payment_proof"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -604,7 +604,7 @@
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textIsSelectable="true"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
@@ -645,7 +645,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="1dp"
                         android:text="@string/transaction_utxo_list"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333333"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

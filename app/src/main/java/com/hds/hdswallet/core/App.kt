@@ -143,7 +143,7 @@ class App : Application() {
         clearLogs()
     }
 
-    fun showFaceIdPrompt(fromFragment:Fragment,title:String,cancel:String? = null, resultCallback: (result: com.hds.hdswallet.core.views.Status) -> Unit) {
+    fun showFaceIdPrompt(fromFragment:Fragment, title:String,cancel:String? = null, resultCallback: (result: com.hds.hdswallet.core.views.Status) -> Unit) {
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(fromFragment, executor,
                 object : BiometricPrompt.AuthenticationCallback() {

@@ -19,6 +19,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:visibility="visible"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

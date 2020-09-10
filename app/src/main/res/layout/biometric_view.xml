@@ -22,7 +22,7 @@
             android:id="@+id/biometricImage"
             android:layout_width="@dimen/fingerprint_icon_size"
             android:layout_height="@dimen/fingerprint_icon_size"
-            android:tint="@android:color/white"
+            android:tint="@android:color/darker_gray"
             android:layout_gravity="center"
             android:contentDescription="@null"
             android:src="@drawable/ic_touch" />

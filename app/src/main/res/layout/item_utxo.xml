@@ -20,7 +20,7 @@
         android:drawablePadding="5dp"
         android:fontFamily="@font/roboto_medium"
         android:gravity="start"
-        android:textColor="#FFFFFF"
+        android:textColor="#333"
         android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

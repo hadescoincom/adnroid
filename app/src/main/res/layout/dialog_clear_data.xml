@@ -36,6 +36,7 @@
         android:id="@+id/deleteAllAddressesCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/deleteAllAddressesTitle"
         app:layout_constraintBottom_toBottomOf="@id/deleteAllAddressesTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -56,6 +57,7 @@
         android:id="@+id/deleteAllContactsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/deleteAllContactsTitle"
         app:layout_constraintBottom_toBottomOf="@id/deleteAllContactsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -76,6 +78,7 @@
         android:id="@+id/deleteAllTagsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/deleteAllTagsTitle"
         app:layout_constraintBottom_toBottomOf="@id/deleteAllTagsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -97,6 +100,7 @@
         android:id="@+id/deleteAllTransactionsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/deleteAllTransactionsTitle"
         app:layout_constraintBottom_toBottomOf="@id/deleteAllTransactionsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>

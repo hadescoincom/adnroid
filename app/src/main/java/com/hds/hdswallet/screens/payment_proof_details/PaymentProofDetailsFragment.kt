@@ -34,11 +34,11 @@ class PaymentProofDetailsFragment : BaseFragment<PaymentProofDetailsPresenter>()
 
     override fun getPaymentProof(): PaymentProof = PaymentProofDetailsFragmentArgs.fromBundle(arguments!!).paymentProof
     override fun getStatusBarColor(): Int = if (App.isDarkMode) {
-    ContextCompat.getColor(context!!, R.color.addresses_status_bar_color_black)
-}
-else{
-    ContextCompat.getColor(context!!, R.color.addresses_status_bar_color)
-}
+        ContextCompat.getColor(context!!, R.color.addresses_status_bar_color_black)
+    }
+    else{
+        ContextCompat.getColor(context!!, R.color.addresses_status_bar_color)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun init(paymentProof: PaymentProof) {

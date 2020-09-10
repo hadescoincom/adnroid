@@ -25,18 +25,19 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 object LocaleHelper {
-    private const val enLanguageCode = "en"
-    private val englishLanguage = SupportedLanguage(enLanguageCode, "English", "English")
+    private const val enLanguageCode = "zh"
+    private val englishLanguage = SupportedLanguage(enLanguageCode, "Chinese", "中文")
     private val systemLocale: Locale = getSystemLocale()
 
     val supportedLanguages = listOf(
             englishLanguage,
+            SupportedLanguage("en", "English", "English"),
             SupportedLanguage("ru", "Russian", "Русский"),
             SupportedLanguage("sv", "Swedish", "Svenska"),
             SupportedLanguage("es", "Spanish", "Español"),
             SupportedLanguage("tr", "Turkish", "Türk"),
             SupportedLanguage("vi", "Vietnamese", "Tiếng Việt"),
-            SupportedLanguage("zh", "Chinese", "中文"),
+//            SupportedLanguage("zh", "Chinese", "中文"),
             SupportedLanguage("fr", "French", "Français"),
             SupportedLanguage("ja", "Japanese", "日本語"),
             SupportedLanguage("ko", "Korean", "한국어"),

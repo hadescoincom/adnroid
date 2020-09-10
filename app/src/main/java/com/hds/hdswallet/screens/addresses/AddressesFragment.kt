@@ -77,7 +77,7 @@ class AddressesFragment : BaseFragment<AddressesPresenter>(), AddressesContract.
         requireActivity().onBackPressedDispatcher.addCallback(activity!!, onBackPressedCallback)
 
         itemsswipetorefresh.setProgressBackgroundColorSchemeColor(android.graphics.Color.WHITE)
-        itemsswipetorefresh.setColorSchemeColors(ContextCompat.getColor(context!!, R.color.colorPrimary))
+        itemsswipetorefresh.setColorSchemeColors(ContextCompat.getColor(context!!, R.color.colorAccent))
 
         itemsswipetorefresh.setOnRefreshListener {
             AppManager.instance.reload()

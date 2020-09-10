@@ -7,6 +7,7 @@
 
     <style name="ToolbarTheme" parent="@style/Base.TextAppearance.AppCompat.Title">
         <item name="android:textSize">18sp</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
         <item name="android:fontFamily">@font/roboto_medium</item>
     </style>
 
@@ -46,12 +47,13 @@
     </style>
 
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+<!--        <item name="colorPrimary">@color/colorAccent</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <item name="android:textColorPrimary">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/colorPrimaryDark</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/common_text_big_dark</item>
         <item name="android:textAppearance">@style/common_text_big_dark</item>
         <item name="android:fontFamily">@font/roboto_regular</item>
@@ -72,6 +74,10 @@
         <item name="cardBackground">@color/colorPrimary</item>
         <item name="initialBackground">@drawable/initial_background</item>
         <item name="addressStatusBarColor">@color/addresses_status_bar_color</item>
+    </style>
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
     <style name="PopupMenu" parent="Theme.AppCompat.NoActionBar">
@@ -309,7 +315,7 @@
         <item name="colorControlActivated">#46bdbf</item>
 
         <!-- inactive thumb color -->
-        <item name="colorSwitchThumbNormal">#8da1ad
+        <item name="colorSwitchThumbNormal">#ffffff
         </item>
 
         <!-- inactive track color -->

@@ -94,11 +94,11 @@ class EditAddressFragment : BaseFragment<EditAddressPresenter>(), EditAddressCon
     override fun onControllerGetContentLayoutId() = R.layout.fragment_edit_address
     override fun getAddress(): WalletAddress = EditAddressFragmentArgs.fromBundle(arguments!!).walletAddress
     override fun getStatusBarColor(): Int = if (App.isDarkMode) {
-    ContextCompat.getColor(context!!, R.color.addresses_status_bar_color_black)
-}
-else{
-    ContextCompat.getColor(context!!, R.color.addresses_status_bar_color)
-}
+        ContextCompat.getColor(context!!, R.color.addresses_status_bar_color_black)
+    }
+    else{
+        ContextCompat.getColor(context!!, R.color.addresses_status_bar_color)
+    }
 
     override fun init(address: WalletAddress) {
         isContact = address.isContact

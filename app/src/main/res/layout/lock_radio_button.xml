@@ -4,5 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/settings_dialog_button_top_margin"
     android:checked="false"
+    android:textColor="@color/common_text_color"
+    android:buttonTint="@color/common_text_color"
     android:filterTouchesWhenObscured="true"
     android:textSize="@dimen/common_settings_size" />

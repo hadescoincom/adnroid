@@ -36,6 +36,7 @@
         android:id="@+id/deleteAllTransactionsCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:theme="@style/MyCheckBox"
         app:layout_constraintTop_toTopOf="@id/deleteAllTransactionsTitle"
         app:layout_constraintBottom_toBottomOf="@id/deleteAllTransactionsTitle"
         app:layout_constraintEnd_toEndOf="parent"/>

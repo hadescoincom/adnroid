@@ -138,7 +138,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="1dp"
                         android:text="@string/details"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -181,7 +181,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333"
                         android:textSize="14sp"
                         tools:text="8jdu7wsdjkflk39902mnsdnkbkjadavfd39nas7877qwbnkbkjadavfd39n3o9bdy" />
                 </LinearLayout>
@@ -211,7 +211,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:padding="3dp"
                         android:textAllCaps="false"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333"
                         android:textSize="14sp"
                         tools:text="@string/coinbase" />
                 </LinearLayout>
@@ -247,7 +247,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="1dp"
                         android:text="@string/transaction_history"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#333"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"

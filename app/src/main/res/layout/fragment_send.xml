@@ -71,10 +71,8 @@
                     android:layout_width="@dimen/send_transfer_btn_width"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
-                    android:background="@drawable/send_btn_next_background"
                     app:button_icon="@drawable/ic_btn_next_pink"
                     app:button_text="@string/next"
-                    app:button_text_color="@color/sent_color"
                     app:lower_case="true" />
             </LinearLayout>
 
